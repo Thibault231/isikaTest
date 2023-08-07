@@ -1,11 +1,14 @@
+import fr.isika.cda26.poo.pharmacy.Pharmacy;
 
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Hello World");
 		// MAJ DB.
-		// create pharmacy
-		// createTrainingSet
+		Pharmacy healthForall = new Pharmacy("Health for All", "M. Pichon");
+		System.out.println(healthForall);
+
+		// createTrainingSet Persons
+		// create TrainingSet Products
 		//add TrainingSet to Pharmacy
 		// Open Pharmacy
 		// Menu: 1-Create / 2-Consult / 3- Stock / 4-Payment and invoice / 5- MAJ DB.
