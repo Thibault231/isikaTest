@@ -2,20 +2,18 @@ package fr.isika.cda26.poo.interfaces;
 
 public interface BddConstants {
 	
-	public final int PERSON_NAME_SIZE = 20;
-	public final int PERSON_FORENAME_SIZE = 20;
-	public final int PERSON_TEL_NUMBER_SIZE = 10;
-	public final int PERSON_CITY_SIZE = 20;
-	public final int PERSON_POSTAL_INDEX_SIZE = 5;
+	String INVOICES_DIRECTORY_PATH = "src/main/resources/invoicesDb";
+	String MUTUAL_DIRECTORY_PATH = "src/main/resources/mutualDb";
+	String PERSON_DIRECTORY_PATH = "src/main/resources/personsDb";
+	String CLIENT_DIRECTORY_PATH = "src/main/resources/personsDb/clientsDb";
+	String DOCTOR_DIRECTORY_PATH = "src/main/resources/personsDb/doctorsDb";
+	String EMPLOYEE_DIRECTORY_PATH = "src/main/resources/personsDb/employeesDb";
+	String PRODUCT_DIRECTORY_PATH = "src/main/resources/productsDb";
+	String NAME_OF_DBFILES = "/dbFile.bin";
 	
-	public final int CLIENT_FIRST_MUTAL_SIZE = 6;
-	public final int CLIENT_COMPLEMENTARY_MUTAL_SIZE = 6;
-	public final int CLIENT_MAIN_DOCTOR_SIZE = 6;
+	int NAME_SIZE = 20;
+	int TEL_NUMBER_SIZE = 1;
+	int POSTAL_INDEX_SIZE = 5;
+	int ID_SIZE = 1;	
 	
-	public final int DOCTOR_SPECIALITY_SIZE = 20;
-	
-	public final int EMPLOYEE_FUNCTION_SIZE = 20;
-	
-	
-
 }

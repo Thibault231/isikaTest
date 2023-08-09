@@ -3,9 +3,11 @@ package fr.isika.cda26.poo.pharmacy;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.isika.cda26.poo.db.DbWriter;
 import fr.isika.cda26.poo.mutual.HealthMutual;
 import fr.isika.cda26.poo.person.Client;
 import fr.isika.cda26.poo.person.Doctor;
+import fr.isika.cda26.poo.person.Employe;
 import fr.isika.cda26.poo.stock.Stock;
 
 /**
@@ -22,6 +24,7 @@ public final class Pharmacy {
 	private List<Client> clientsList;
 	private List<Doctor> doctorsList;
 	private List<HealthMutual> mutualsList;
+	private ArrayList<Employe> employeesList;
 	
 //********************************** CONSTRUCTORS **************************************
 	/**
@@ -40,6 +43,7 @@ public final class Pharmacy {
 		this.clientsList = new ArrayList<Client>();
 		this.doctorsList = new ArrayList<Doctor>();
 		this.mutualsList = new ArrayList<HealthMutual>();
+		this.employeesList = new ArrayList<Employe>();
 	}
 
 	
@@ -63,6 +67,8 @@ public final class Pharmacy {
 	public void addNewClient(Client newClient) {
 		clientsList.add(newClient);
 		System.out.println("New client added to the clients list.");
+		newClient.writeObjectInDb();
+		System.out.println("New client added in the DB.");
 	}
 	
 	/**
@@ -72,6 +78,8 @@ public final class Pharmacy {
 	public void addNewDoctor(Doctor newDoctor) {
 		doctorsList.add(newDoctor);
 		System.out.println("New doctor added to the doctors list.");
+		newDoctor.writeObjectInDb();
+		System.out.println("New doctor added in the DB.");
 	}
 	
 	/**
@@ -81,5 +89,18 @@ public final class Pharmacy {
 	public void addNewMutual(HealthMutual newMutual) {
 		mutualsList.add(newMutual);
 		System.out.println("New mutual added to the mutuals list.");
+		newMutual.writeObjectInDb();
+		System.out.println("New mutual added in the DB.");
+	}
+	
+	/**
+	 *  Add an new employee to the pharmacy and write it in the DB.
+	 * @param newMutual
+	 */
+	public void addNewEmployee(Employe newEmployee) {
+		employeesList.add(newEmployee);
+		System.out.println("New employee added to the employees list.");
+		newEmployee.writeObjectInDb();
+		System.out.println("New employee added in the DB.");
 	}
 }
