@@ -152,5 +152,12 @@ public class Client extends Person {
 			
 		}
 
+
+	@Override
+	public void printProductFromDbFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

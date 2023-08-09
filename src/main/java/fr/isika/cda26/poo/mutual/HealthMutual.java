@@ -101,4 +101,10 @@ public final class HealthMutual extends ObjectOfDB implements BddConstants {
 
 	}
 
+	@Override
+	public void printProductFromDbFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

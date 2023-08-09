@@ -5,6 +5,8 @@ public abstract class ObjectOfDB {
 //********************************** SPECIFIC PUBLIC METHODS ****************************
 	public abstract void writeObjectInDb();
 	
+	public abstract void printProductFromDbFile();
+	
 	/**
 	 * Resize attribute for binary writing.
 	 * @param size

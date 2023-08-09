@@ -23,9 +23,7 @@ import fr.isika.cda26.poo.interfaces.BddConstants;
 public class DbInit implements BddConstants {
 
 //********************************** ATTRIBUTS *****************************************
-	private List<String> pathList = new ArrayList<String>(
-			Arrays.asList(INVOICES_DIRECTORY_PATH, MUTUAL_DIRECTORY_PATH, PERSON_DIRECTORY_PATH, CLIENT_DIRECTORY_PATH,
-					DOCTOR_DIRECTORY_PATH, EMPLOYEE_DIRECTORY_PATH, PRODUCT_DIRECTORY_PATH));
+	private List<String> pathList = ALL_DIRECTORIES_PATH;
 
 //********************************** CONSTRUCTORS **************************************	
 	/**
@@ -56,18 +54,15 @@ public class DbInit implements BddConstants {
 	 * Create one DB file in each DB directories.
 	 */
 	private void createFiles() {
-		for (String path : pathList) {
-			if (!path.equals(PERSON_DIRECTORY_PATH)) {
-				File myNewFile = new File(path + NAME_OF_DBFILES);
-				try {
-					myNewFile.createNewFile();
-					System.out.println("Creation of DB file for directory : " + path + " .");
-				} catch (IOException e) {
-					e.printStackTrace();
-					System.out.println("Error with creation of DB file for directory : " + path + " .");
-					myNewFile = null;
-				}
-
+		for (String path : DIRECTORIES_FOR_FILES_PATH) {
+			File myNewFile = new File(path + NAME_OF_DBFILES);
+			try {
+				myNewFile.createNewFile();
+				System.out.println("Creation of DB file for directory : " + path + " .");
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.out.println("Error with creation of DB file for directory : " + path + " .");
+				myNewFile = null;
 			}
 
 		}
@@ -78,7 +73,7 @@ public class DbInit implements BddConstants {
 	 * Erase content of all Db Files.
 	 */
 	public void eraseFilesContents() {
-		for (String path : pathList) {
+		for (String path : DIRECTORIES_FOR_FILES_PATH) {
 			String pathToFile = path.concat(NAME_OF_DBFILES);
 			try {
 				PrintWriter pw = new PrintWriter(pathToFile);
@@ -88,7 +83,6 @@ public class DbInit implements BddConstants {
 				e.printStackTrace();
 				System.out.println("Error. File " + pathToFile + " hasn't been erased.");
 			}
-
 		}
 	}
 

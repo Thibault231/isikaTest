@@ -96,5 +96,12 @@ public class Employe extends Person {
 			}
 			
 		}
+
+
+	@Override
+	public void printProductFromDbFile() {
+		// TODO Auto-generated method stub
+		
+	}
 	}
 

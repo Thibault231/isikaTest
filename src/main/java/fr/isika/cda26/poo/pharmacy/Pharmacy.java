@@ -39,7 +39,7 @@ public final class Pharmacy {
 	public Pharmacy(String name, String owner) {
 		this.name = name;
 		this.owner = owner;
-		this.stock = new Stock();
+		this.stock = new Stock("Stock of medications");
 		this.clientsList = new ArrayList<Client>();
 		this.doctorsList = new ArrayList<Doctor>();
 		this.mutualsList = new ArrayList<HealthMutual>();
@@ -47,9 +47,19 @@ public final class Pharmacy {
 	}
 
 	
+//********************************** GUETTERS / SETTERS ***********************************	
+	/**
+	 * Getter for stock attribute of the pharmacy.
+	 * @return the stock (:Stock)
+	 */
+	public Stock getStock() {
+		return stock;
+	}
+
+
 //********************************** OVERRIDEN METHODS **********************************
 	/**
-	 * Overriden from MotherClass: Present myAt attribute of the object.
+	 * Overriden from Class Object: Present myAt attribute of the object.
 	 * 
 	 * @return (: String)
 	 */
@@ -95,7 +105,7 @@ public final class Pharmacy {
 	
 	/**
 	 *  Add an new employee to the pharmacy and write it in the DB.
-	 * @param newMutual
+	 * @param newEmployee
 	 */
 	public void addNewEmployee(Employe newEmployee) {
 		employeesList.add(newEmployee);
