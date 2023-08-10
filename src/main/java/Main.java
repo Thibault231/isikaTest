@@ -34,15 +34,14 @@ public class Main {
 		healthForall.addNewClient(client1);
 		healthForall.addNewClient(client2);
 
-		// create TrainingSet Products
-		Medication medication1 = new Medication("Pilulle smiley", 150, 20, 1000, 0, 100);
-		Medication medication2 = new Medication("Pansement cool", 3, 10, 2000, 4, 10);
-
-		// add TrainningSet to Stock
-		healthForall.getStock().addNewMedication(medication1);
-		healthForall.getStock().addNewMedication(medication2);
+		// create TrainingSet Products and add it to the Stock
+		healthForall.getStock().addNewMedication(new Medication("Pilulle smiley", 150, 20, 1000, 0, 100));
+		healthForall.getStock().addNewMedication(new Medication("Pansement cool", 3, 10, 2000, 4, 10));
+		healthForall.getStock().addNewMedication(new Medication("Sirop", 25, 10, 1500, 3, 25));
 
 		// Get and print all the products of the Stock. 
+		healthForall.getStock().printAllProductsInStock();
+		healthForall.getStock().deleteOneMedication(1);
 		healthForall.getStock().printAllProductsInStock();
 		
 		// Get and print all the persons of the Pharmacy.

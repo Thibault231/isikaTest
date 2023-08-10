@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import fr.isika.cda26.poo.interfaces.BddConstants;
+import fr.isika.cda26.poo.interfaces.DbConstants;
 
 /**
  * Class for initialisation of the DB
@@ -20,7 +20,7 @@ import fr.isika.cda26.poo.interfaces.BddConstants;
  * @author Thibault SALGUES
  *
  */
-public class DbInit implements BddConstants {
+public class DbInit implements DbConstants {
 
 //********************************** ATTRIBUTS *****************************************
 	private List<String> pathList = ALL_DIRECTORIES_PATH;

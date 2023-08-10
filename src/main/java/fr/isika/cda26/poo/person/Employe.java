@@ -103,5 +103,12 @@ public class Employe extends Person {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public int findLatestInstanceId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	}
 

@@ -1,14 +1,14 @@
 package fr.isika.cda26.poo.product;
 
 import fr.isika.cda26.poo.db.ObjectOfDB;
-import fr.isika.cda26.poo.interfaces.BddConstants;
+import fr.isika.cda26.poo.interfaces.DbConstants;
 
 /**
  * Abstract class for all products sell in the pharmacy. Heritage from ObjectOfDb.
  * @author Thibault SALGUES
  *
  */
-public abstract class Product extends ObjectOfDB implements BddConstants {
+public abstract class Product extends ObjectOfDB implements DbConstants {
 
 //********************************** ATTRIBUTS *****************************************
 	protected String name;

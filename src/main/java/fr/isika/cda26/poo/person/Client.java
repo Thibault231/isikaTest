@@ -159,5 +159,12 @@ public class Client extends Person {
 		
 	}
 
+
+	@Override
+	public int findLatestInstanceId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public interface BddConstants {
+public interface DbConstants {
 	
 	String INVOICES_DIRECTORY_PATH = "src/main/resources/invoicesDb";
 	String MUTUAL_DIRECTORY_PATH = "src/main/resources/mutualDb";
@@ -27,10 +27,14 @@ public interface BddConstants {
 	
 	
 	int NAME_SIZE = 20;
+	int INT_SIZE = 4;
+	String FILLING_CHAR = "*";
+	int DELETE_ID = -1;
 	int TEL_NUMBER_SIZE = 1;
 	int POSTAL_INDEX_SIZE = 5;
 	int ID_SIZE = 1;
 	
 	int MEDICATION_SIZE = 64 ;
+	int[] MEDICATION_DB_MASK = new int[] {0, 4, 44, 48, 52, 56, 60};
 	
 }

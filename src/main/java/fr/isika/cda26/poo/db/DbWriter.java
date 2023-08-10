@@ -4,14 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import fr.isika.cda26.poo.interfaces.BddConstants;
+import fr.isika.cda26.poo.interfaces.DbConstants;
 import fr.isika.cda26.poo.person.Employe;
 /**
  * Write the Db files, adding and erasing persons and products.
  * @author LENOVO
  *
  */
-public class DbWriter implements BddConstants {
+public class DbWriter implements DbConstants {
 
 //********************************** ATTRIBUTS *****************************************
 	private Object objectToWrite;

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 import fr.isika.cda26.poo.db.ObjectOfDB;
-import fr.isika.cda26.poo.interfaces.BddConstants;
+import fr.isika.cda26.poo.interfaces.DbConstants;
 
 /**
  * Mutual for client reimbursement. Heritage from class ObjectOfDB.
@@ -12,7 +12,7 @@ import fr.isika.cda26.poo.interfaces.BddConstants;
  * @author LENOVO
  *
  */
-public final class HealthMutual extends ObjectOfDB implements BddConstants {
+public final class HealthMutual extends ObjectOfDB implements DbConstants {
 
 //********************************** ATTRIBUTS *****************************************
 	private String name;
@@ -105,6 +105,12 @@ public final class HealthMutual extends ObjectOfDB implements BddConstants {
 	public void printProductFromDbFile() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int findLatestInstanceId() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
