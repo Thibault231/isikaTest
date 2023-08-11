@@ -11,6 +11,8 @@ public abstract class ObjectOfDB implements DbConstants {
 	
 	public abstract int findLatestInstanceId();
 	
+	public abstract void modifyObjectInDb(int rank, Object object);
+	
 	
 	/**
 	 * Resize attribute for binary writing.

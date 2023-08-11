@@ -1,9 +1,9 @@
-package fr.isika.cda26.poo.pharmacy;
+package fr.isika.cda26.poo.drugStrore;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.isika.cda26.poo.db.DbWriter;
+import fr.isika.cda26.poo.db.DbManager;
 import fr.isika.cda26.poo.mutual.HealthMutual;
 import fr.isika.cda26.poo.person.Client;
 import fr.isika.cda26.poo.person.Doctor;
@@ -11,11 +11,11 @@ import fr.isika.cda26.poo.person.Employe;
 import fr.isika.cda26.poo.stock.Stock;
 
 /**
- * Pharmacy generate as a real shop.
+ * Drug store generate as a real shop.
  * @author Thibault SALGUES
  *
  */
-public final class Pharmacy {
+public final class DrugStore {
 
 //********************************** ATTRIBUTS *****************************************
 	private String name;
@@ -36,7 +36,7 @@ public final class Pharmacy {
 	 * @param doctorsList
 	 * @param mutualsList
 	 */
-	public Pharmacy(String name, String owner) {
+	public DrugStore(String name, String owner) {
 		this.name = name;
 		this.owner = owner;
 		this.stock = new Stock("Stock of medications");
@@ -49,7 +49,7 @@ public final class Pharmacy {
 	
 //********************************** GUETTERS / SETTERS ***********************************	
 	/**
-	 * Getter for stock attribute of the pharmacy.
+	 * Getter for stock attribute of the drug store.
 	 * @return the stock (:Stock)
 	 */
 	public Stock getStock() {
@@ -59,7 +59,7 @@ public final class Pharmacy {
 
 //********************************** OVERRIDEN METHODS **********************************
 	/**
-	 * Overriden from Class Object: Present myAt attribute of the object.
+	 * Overridden from Class Object: Present myAt attribute of the object.
 	 * 
 	 * @return (: String)
 	 */
@@ -71,7 +71,7 @@ public final class Pharmacy {
 
 //********************************** SPECIFIC PUBLIC METHODS ****************************	
 	/**
-	 * Add a new client to the pharmacy and write it in the DB.
+	 * Add a new client to the p drug store and write it in the DB.
 	 * @param newClient
 	 */
 	public void addNewClient(Client newClient) {
@@ -82,7 +82,7 @@ public final class Pharmacy {
 	}
 	
 	/**
-	 *  Add a new doctor to the pharmacy and write it in the DB.
+	 *  Add a new doctor to the drug store and write it in the DB.
 	 * @param newDoctor
 	 */
 	public void addNewDoctor(Doctor newDoctor) {
@@ -104,7 +104,7 @@ public final class Pharmacy {
 	}
 	
 	/**
-	 *  Add an new employee to the pharmacy and write it in the DB.
+	 *  Add an new employee to the  drug store and write it in the DB.
 	 * @param newEmployee
 	 */
 	public void addNewEmployee(Employe newEmployee) {

@@ -110,5 +110,12 @@ public class Employe extends Person {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+	@Override
+	public void modifyObjectInDb(int rank, Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 	}
 

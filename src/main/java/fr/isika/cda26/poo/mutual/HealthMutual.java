@@ -113,4 +113,10 @@ public final class HealthMutual extends ObjectOfDB implements DbConstants {
 		return 0;
 	}
 
+	@Override
+	public void modifyObjectInDb(int rank, Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

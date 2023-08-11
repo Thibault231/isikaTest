@@ -78,10 +78,12 @@ public class Medication extends Product  implements DbConstants{
 	public void setBaseOfRefund(int baseOfRefund) {
 		this.baseOfRefund = baseOfRefund;
 	}
+	
+	
 
 //********************************** OVERRIDEN METHODS **********************************
 	/**
-	 * Overriden from Class ObjectOfDB: Write the medication object in the
+	 * Overridden from Class ObjectOfDB: Write the medication object in the
 	 * associated binary DB file.
 	 */
 	@Override
@@ -108,13 +110,41 @@ public class Medication extends Product  implements DbConstants{
 
 	}
 
-	@Override
+	
 	/**
-	 * Overriden from Class ObjectOfDb. Print all the products of Medication DB
+	 * Overridden from Class ObjectOfDB: Write the medication modifications in int's DB file place.
+	 */
+	@Override
+	public void modifyObjectInDb(int medicationRank, Object modifiedObject) {
+		Medication modifiedMedication = (Medication)(modifiedObject);
+		modifiedMedication.setName(prepareAttributeToBeWrite(NAME_SIZE, this.getName()));
+
+		String fileToWrite = MEDICATION_DIRECTORY_PATH + NAME_OF_DBFILES;
+		try {
+			RandomAccessFile raf = new RandomAccessFile(fileToWrite, "rw");
+			raf.seek(medicationRank*MEDICATION_SIZE + MEDICATION_DB_MASK[1]);
+			raf.writeChars(modifiedMedication.getName());
+			raf.writeInt(modifiedMedication.getPrice());
+			raf.writeInt(modifiedMedication.getRateTVA());
+			raf.writeInt(modifiedMedication.getAmount());
+			raf.writeInt(modifiedMedication.getType());
+			raf.writeInt(modifiedMedication.getBaseOfRefund());
+			raf.close();
+			System.out.println("Modifications done in the Medication DB file.");
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Error while adding modifications in the medication DB file.");
+		}
+
+	}
+	
+	/**
+	 * Overridden from Class ObjectOfDb. Print all the products of Medication DB
 	 * file.
 	 * 
 	 * @param fileName (:String)
 	 */
+	@Override
 	public void printProductFromDbFile() {
 		String fileName = MEDICATION_DIRECTORY_PATH + NAME_OF_DBFILES;
 		try {
@@ -147,8 +177,7 @@ public class Medication extends Product  implements DbConstants{
 	}
 
 	/**
-	 * Overriden from Class ObjectOfDb. Calculate the lastest Id assigned to a
-	 * medication object.
+	 * Overridden from Class ObjectOfDb. Calculate the lastest Id assigned to a medication object.
 	 * 
 	 * @return lastestId (:int)
 	 */

@@ -1,9 +1,12 @@
+import javax.swing.JFrame;
+
 import fr.isika.cda26.poo.db.DbInit;
+import fr.isika.cda26.poo.drugStrore.DrugStore;
+import fr.isika.cda26.poo.jFrame.MainFrame;
 import fr.isika.cda26.poo.mutual.HealthMutual;
 import fr.isika.cda26.poo.person.Client;
 import fr.isika.cda26.poo.person.Doctor;
 import fr.isika.cda26.poo.person.Employe;
-import fr.isika.cda26.poo.pharmacy.Pharmacy;
 import fr.isika.cda26.poo.product.Medication;
 
 public class Main {
@@ -15,7 +18,7 @@ public class Main {
 		pharmacyDB.eraseFilesContents();
 
 		// Create Pharmacy
-		Pharmacy healthForall = new Pharmacy("Health for All", "M. Pichon");
+		DrugStore healthForall = new DrugStore("Health for All", "M. Pichon");
 
 		// createTrainingSet Persons
 
@@ -36,16 +39,21 @@ public class Main {
 
 		// create TrainingSet Products and add it to the Stock
 		healthForall.getStock().addNewMedication(new Medication("Pilulle smiley", 150, 20, 1000, 0, 100));
-		healthForall.getStock().addNewMedication(new Medication("Pansement cool", 3, 10, 2000, 4, 10));
+		healthForall.getStock().addNewMedication(new Medication("Pansement cool avec le nom trop long", 3, 10, 2000, 4, 10));
 		healthForall.getStock().addNewMedication(new Medication("Sirop", 25, 10, 1500, 3, 25));
 
 		// Get and print all the products of the Stock. 
+		//healthForall.getStock().printAllProductsInStock();
+		healthForall.getStock().deleteProduct(1, "Medication");
+		//healthForall.getStock().printAllProductsInStock();
+		healthForall.getStock().addNewMedication(new Medication("Pansement cool avec le nom trop long", 3, 10, 2000, 4, 10));
 		healthForall.getStock().printAllProductsInStock();
-		healthForall.getStock().deleteOneMedication(1);
+		healthForall.getStock().modifyProduct(3, new Medication("Pansement cool", 3, 10, 2100, 4, 10));
 		healthForall.getStock().printAllProductsInStock();
 		
-		// Get and print all the persons of the Pharmacy.
-		
+		// Créer fenêtre Swing
+		 MainFrame pharmacyWindow = new MainFrame();
+		    
 		// Open Pharmacy
 		// Menu: 1-Create / 2-Consult / 3- Stock / 4-Payment and invoice / 5- MAJ DB.
 		// 1- Create 1:Client 2: Doctor 3: Health care mutual
