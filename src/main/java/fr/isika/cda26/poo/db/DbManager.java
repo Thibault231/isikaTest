@@ -34,7 +34,7 @@ public class DbManager implements DbConstants {
 	/**
 	 * Change the id of the object to -1 and rebase the DB file of medications.
 	 */
-	public void deleteOneMedication(int objectId) {
+	public boolean deleteOneMedication(int objectId) {
 		int readenId = DELETE_ID;
 		int iterator = 0;
 		String fileName = MEDICATION_DIRECTORY_PATH + NAME_OF_DBFILES;
@@ -51,8 +51,10 @@ public class DbManager implements DbConstants {
 						
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
 		}
 		rebaseMedicationDb();
+		return true;
 
 	}
 	

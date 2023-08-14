@@ -1,26 +1,27 @@
 package fr.isika.cda26.poo.jFrame;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class StockFrame extends JFrame {
-	private static final long serialVersionUID = 1L;
 
+//********************************** ATTRIBUTES **************************
+	private static final long serialVersionUID = 1L;
+	private StockCards stockCards = new StockCards();
+	private ButonsStock butonsStock = new ButonsStock(stockCards);
+
+	/**
+	 * Generate the window for Stock management.
+	 */
 	public StockFrame() {
 
 //********************************** FRAME PARAMETERS **************************
@@ -30,47 +31,8 @@ public class StockFrame extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setLayout(new BorderLayout());
 
-//********************************** CARDS LAYOUT *******************************	
-		final CardLayout cl = new CardLayout();
-		final JPanel content = new JPanel();
-
-		final String[] listContent = { "arrivalCard", "deletedCard", "detailProductCard", "modifyProductCard" };
-
-		JPanel arrivalCard = new JPanel();
-		JTextField jtf = new JTextField("0");
-		JLabel label = new JLabel("Product Id : ");
-		JPanel top = new JPanel();
-		Font police = new Font("Arial", Font.BOLD, 14);
-		jtf.setFont(police);
-		jtf.setPreferredSize(new Dimension(150, 30));
-		jtf.setForeground(Color.BLUE);
-		top.add(label);
-		top.add(jtf);
-		GridLayout gl0 = new GridLayout(3, 1);
-		arrivalCard.setLayout(gl0);
-		arrivalCard.add(new JPanel());
-		arrivalCard.add(top);
-		arrivalCard.add(new JPanel());
-
-		JPanel deletedCard = new JPanel();
-		deletedCard.setBackground(Color.red);
-
-		JPanel detailProductCard = new JPanel();
-		detailProductCard.setBackground(Color.green);
-
-		JPanel modifyProductCard = new JPanel();
-		modifyProductCard.setBackground(Color.blue);
-		
-		
 //********************************** ADD CARDS TO LAYOUT ************************
-		content.setLayout(cl);
-		content.add(arrivalCard, listContent[0]);
-		content.add(deletedCard, listContent[1]);
-		content.add(detailProductCard, listContent[2]);
-		content.add(modifyProductCard, listContent[3]);
-		this.getContentPane().add(content, BorderLayout.CENTER);
-		
-
+		this.getContentPane().add(stockCards.content, BorderLayout.CENTER);
 
 //********************************** CREATE MENU BAR **************************
 		JMenuBar menuBar = new JMenuBar();
@@ -95,7 +57,7 @@ public class StockFrame extends JFrame {
 
 		item5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				cl.show(content, listContent[0]);
+				stockCards.cl.show(stockCards.content, stockCards.listContent[0]);
 			}
 		});
 
@@ -125,62 +87,20 @@ public class StockFrame extends JFrame {
 		gl1.setHgap(5);
 		gl1.setVgap(5);
 		butonPane2.setLayout(gl1);
-
-//********************************** CREATE BUTONS *******************************
-
-		JButton butonDisplay = new JButton("Display all stock");
-		butonDisplay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				cl.show(content, listContent[0]);
-			}
-		});
-
-		JButton butonSearch = new JButton("Search a product");
-		butonSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				cl.show(content, listContent[0]);
-			}
-		});
-
-		JButton butonDisplayProduct = new JButton(">> Detail about this product");
-		butonDisplayProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				cl.show(content, listContent[2]);
-			}
-		});
-
-		JButton butonModifyProduct = new JButton(">> Modify this product");
-		butonModifyProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				cl.show(content, listContent[3]);
-			}
-		});
-
-		JButton butonCreateProduct = new JButton("Create a new product");
-		butonCreateProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				cl.show(content, listContent[1]);
-			}
-		});
-
-		JButton butonDeleteProduct = new JButton(">> Delete this product");
-		butonDeleteProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				cl.show(content, listContent[1]);
-			}
-		});
+		
 
 //********************************** ADD BUTONS TO PANE *******************************
-		butonPane1.add(butonDisplay);
-		butonPane2.add(butonDisplayProduct);
-		butonPane1.add(butonSearch);
-		butonPane1.add(butonCreateProduct);
-		butonPane2.add(butonDeleteProduct);
-		butonPane2.add(butonModifyProduct);
+		butonPane1.add(butonsStock.butonDisplay);
+		butonPane2.add(butonsStock.butonDisplayProduct);
+		butonPane1.add(butonsStock.butonSearch);
+		butonPane1.add(butonsStock.butonCreateProduct);
+		butonPane2.add(butonsStock.butonDeleteProduct);
+		butonPane2.add(butonsStock.butonModifyProduct);
 		this.getContentPane().add(butonPane1, BorderLayout.SOUTH);
 		this.getContentPane().add(butonPane2, BorderLayout.EAST);
 
 //********************************** SET VISIBLE *******************************
 		this.setVisible(true);
 	}
+
 }
